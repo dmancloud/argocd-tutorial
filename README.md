@@ -1,2 +1,1 @@
-# argocd-tutorial
- Continuous Delivery With ArgoCD
+# ArgoCD Continuous Delivery Tutorial 
