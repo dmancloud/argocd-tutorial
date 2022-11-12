@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: react-application
-  name: react-application
+    run: nginx
+  name: nginx
 spec:
   ports:
   - name: http
@@ -11,26 +11,26 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    run: react-application
+    run: nginx
   type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react-application
+  name: nginx
 spec:
   replicas: 2
   selector:
     matchLabels:
-      run: react-application
+      run: nginx
   template:
     metadata:
       labels:
-        run: react-application
+        run: nginx
     spec:
       containers:
-      - image: anaisurlichs/react-example-app:7.0.0
+      - image: dmancloud/nginx:0.0.2
         imagePullPolicy: Always
-        name: react-application
+        name: nginx
         ports:
         - containerPort: 80

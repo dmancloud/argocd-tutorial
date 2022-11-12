@@ -3,8 +3,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 images:
-- name: anaisurlichs/react-example-app
-  newTag: 7.0.0
+- name: dmancloud/nginx
+  newTag: 0.0.2
 
 resources:
 - deployment.yaml
