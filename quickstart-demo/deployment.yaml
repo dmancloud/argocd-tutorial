@@ -15,5 +15,6 @@ spec:
         app: nginx
     spec:
       containers:
-        - image: nginx:latest
-          name: nginx
+      - name: nginx
+        image: nginx:latest
+        imagePullPolicy: IfNotPresent
