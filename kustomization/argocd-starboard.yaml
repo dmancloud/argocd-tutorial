@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: starboard
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: starboard-operator
+    repoURL: https://aquasecurity.github.io/helm-charts/
+    targetRevision: 0.15.8
+    helm:
+      values: |
+        targetNamespaces: app
+        trivy:
+          ignoreUnfixed: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: starboard-system
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
