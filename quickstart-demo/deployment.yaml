@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginx
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       run: nginx
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: dmancloud/nginx:latest
+        image: nginx
         ports:
           - containerPort: 80
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
